@@ -1,0 +1,3 @@
+My templates for the great django-registration app. This way I don't have to make these every time I start a new django app.
+
+These templates uses twitter's bootstrap as a base.

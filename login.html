@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Login</h2>
+{% if form.errors %}
+    <div class="alert-message error">
+        <p>Your username and password didn't match. Please try again.</p>
+    </div>
+{% endif %}
+
+<form method="post" action=".">
+{% csrf_token %}
+    <fieldset>
+    <div class="clearfix">
+        {% if form.username.errors %}
+            {% for error in form.username.errors %}
+                <div class="alert-message warning">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {{ form.username.label_tag }}
+        <div class="input"> 
+            {{ form.username }}
+        </div>
+    </div>
+    <div class="clearfix">
+        {% if form.password.errors %}
+            {% for error in form.password.errors %}
+                <div class="alert-message warning">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {{ form.password.label_tag }}
+        <div class="input"> 
+            {{ form.password }}
+        </div>
+    </div>
+    <p><a href="/accounts/password/reset/">Forgor your password?</a></p>
+    <p><a href="/accounts/register/">Not a user yet? Register here.</a></p>
+    <div class="actions">
+        <input type="submit" class="btn primary" value="login" />
+    </div>
+    </fieldset>
+</form>
+{% endblock %}

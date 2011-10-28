@@ -1,0 +1,5 @@
+This is your activation key for {{ site }}:
+
+http://{{ site }}/accounts/activate/{{ activation_key }}
+
+This will key will expire in {{ expiration_days }} days.
